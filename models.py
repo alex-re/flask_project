@@ -1,6 +1,7 @@
 from flask_project import db
 
 
+# SQL
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)  # primary_key=True
     name = db.Column(db.String(50), nullable=False)  # 50 char maximum  (unique=True)
@@ -22,3 +23,9 @@ class Books(db.Model):
     writer = db.relationship("Writer", backref=db.backref("books"))
 
 db.create_all()  # after each change
+
+# ------------------------------------------------------------------------
+
+# CSRF
+csrf = CSRFProtect()
+csrf.init_app(app)
