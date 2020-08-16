@@ -1,6 +1,5 @@
 from flask import Flask
-# import os
-from flask_wtf.csrf import CSRFProtect
+import os
 from flask_sqlalchemy import SQLAlchemy
 from datetime import timedelta
 
@@ -18,7 +17,7 @@ db = SQLAlchemy(app)
 app.permanent_session_lifetime = timedelta(days=1)
 
 
-# CSRF
+# SECRET KEY
 app.secret_key = os.urandom(24)
 
 from flask_project import models, views

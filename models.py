@@ -1,4 +1,5 @@
-from flask_project import db
+from flask_project import app, db
+from flask_wtf.csrf import CSRFProtect
 
 
 # SQL
