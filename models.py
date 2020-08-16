@@ -24,7 +24,7 @@ class User(db.Model):
 #     writer_id = db.Column(db.Integer(), db.ForeignKey("writer.id"))
 #     writer = db.relationship("Writer", backref=db.backref("books"))
 
-db.create_all()  # after each change
+# db.create_all()  # after each change
 
 # ------------------------------------------------------------------------
 

@@ -7,9 +7,17 @@ from flask import jsonify, Flask, render_template, request, redirect, url_for, a
 def index():
     return "home page"
 
+
 @app.route("/login")
-def auth():
-    return render_template("auth.html")
+def login():
+    return render_template("login.html")
+
+
+@app.route("/signup")
+def signup():
+    return render_template("signup.html")
+
+
 
 @app.route("/dashbord", methods=["POST", "GET"])
 def dashboard():

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 	  <title>Sign in</title>
 	</head>
 	
@@ -35,19 +35,7 @@
       <input class="un " name="email" type="email" align="center" placeholder="Email" required maxlength="50">
       
       <input class="pass" name="password" id="password_input" type="password" align="center" placeholder="Password" required maxlength="50" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
-      <!-- <script src="../static/javascript/auth.js"></script> -->
-      <script src="{{ url_for('static', filename='javascript/auth.js') }}"></script>
 
-      <!-- password validation -->
-      <!-- <div id="message">
-        <h3>Password must contain the following:</h3>
-        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-        <p id="number" class="invalid">A <b>number</b></p>
-        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-      </div> -->
-      <!--------------------------------------------------------------------------------->
-      
       
       <button type="submit" class="submit" align="center">Sign in</button>
 	    <p class="forgot" align="center"><a href="#">Forgot Password?</p>             
