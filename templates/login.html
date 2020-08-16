@@ -32,6 +32,8 @@
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
       <!------------------------------------------------------------------>
 
+      <input type="hidden" name="comming_from" value="login"/>
+
       <input class="un " name="email" type="email" align="center" placeholder="Email" required maxlength="50">
       
       <input class="pass" name="password" id="password_input" type="password" align="center" placeholder="Password" required maxlength="50" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">

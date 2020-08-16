@@ -8,9 +8,6 @@ def index():
     return "home page"
 
 
-@app.route("/login")
-def login():
-    return render_template("login.html")
 
 
 @app.route("/signup")
@@ -21,12 +18,22 @@ def signup():
 
 @app.route("/dashbord", methods=["POST", "GET"])
 def dashboard():
-    email = request.form["email"]
-    password = request.form["password"]        
-    try:
-        user = User(email=email, password=password)
-        db.session.add(user)
-        db.session.commit()
-        return render_template("dashbord.html", email=email, password=password)
-    except:
-        return "permission denied", 404
+        if "email" in request.form and "password" in request.form:
+            email = request.form["email"]
+            password = request.form["password"]        
+            if request.form["comming_from"] == "signup":
+                try:
+                    user = User(email=email, password=password)
+                    db.session.add(user)
+                    db.session.commit()
+                    return render_template("dashbord.html", email=email, password=password)
+                except:
+                    return "error in create user"
+            else:
+                return render_template("dashbord.html", email=email, password=password)
+
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
