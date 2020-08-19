@@ -1,6 +1,7 @@
 from flask_project import app, db
 from flask_project.models import User  # , Writer, Books, csrf
 from flask import jsonify, Flask, render_template, request, redirect, url_for, abort, make_response, session
+from hashlib import sha256
 
 
 @app.route("/", methods=["POST", "GET"])
@@ -20,7 +21,7 @@ def signup():
 def dashboard():
         if "email" in request.form and "password" in request.form:
             email = request.form["email"]
-            password = request.form["password"]        
+            password = sha256(request.form["password"].encode()).hexdigest()
             if request.form["comming_from"] == "signup":
                 try:
                     user = User(email=email, password=password)
@@ -37,3 +38,7 @@ def dashboard():
 def login():
     return render_template("login.html")
 
+@app.route("/create_content")
+def create_content():
+    return render_template("create_content.html")
+    
