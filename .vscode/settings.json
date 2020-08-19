@@ -4,7 +4,21 @@
     "python.linting.pylintArgs": [
         "--load-plugins",
         "pylint-flask"
-    ]
-
-
+    ],
+    // I want my default to be 4, but JavaScript/JSON to be 2
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "[json]": {
+        "editor.tabSize": 2
+    },
+    "[html]": {
+        "editor.tabSize": 2
+    },
+    "[css]": {
+        "editor.tabSize": 2
+    },
+    // This one forces the tab to be **space**
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
 }
