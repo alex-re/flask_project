@@ -19,17 +19,24 @@ def signup():
 
 @app.route("/dashbord", methods=["POST", "GET"])
 def dashboard():
+        
         if "email" in request.form and "password" in request.form:
             email = request.form["email"]
             password = sha256(request.form["password"].encode()).hexdigest()
+            
+
+
             if request.form["comming_from"] == "signup":
-                try:
-                    user = User(email=email, password=password)
-                    db.session.add(user)
-                    db.session.commit()
-                    return render_template("dashbord.html", email=email, password=password)
-                except:
-                    return "error in create user"
+                if User.query.filter_by(email=email).first():
+                    return "existing accont!"
+                else:
+                    try:
+                        user = User(email=email, password=password)
+                        db.session.add(user)
+                        db.session.commit()
+                        return render_template("dashbord.html", email=email, password=password)
+                    except:
+                        return "error in create user"
             else:
                 return render_template("dashbord.html", email=email, password=password)
 
